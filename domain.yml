@@ -1,0 +1,45 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - check_item
+
+entities:
+  - item
+
+slots:
+  item:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: item
+      - type: from_text
+        conditions:
+          - active_loop: check_item_form
+            requested_slot: item
+
+responses:
+  utter_greet:
+    - text: "Hello! What can I help you check in your pantry today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Let me know if you need to check anything else."
+
+  utter_ask_item:
+    - text: "Sure! What item would you like to check?"
+
+  utter_no_item_found:
+    - text: "Sorry, I couldn't find that item in your pantry."
+
+  utter_item_found:
+    - text: "Yes, you have {item} in your pantry."
+
+forms:
+  check_item_form:
+    required_slots:
+      - item
+
+actions:
+  - action_check_item_availability

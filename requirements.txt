@@ -1,0 +1,5 @@
+rasa==3.6.21
+rasa-sdk==3.6.21
+websockets==10.3
+aiohttp==3.9.4
+supabase==0.0.5

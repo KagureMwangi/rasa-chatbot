@@ -1,0 +1,32 @@
+version: "3.1"
+
+stories:
+- story: greet and ask for user id
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_user_id
+
+- story: set user id and fetch pantry
+  steps:
+  - intent: provide_user_id
+  - action: action_set_user_id
+  - action: action_fetch_pantry
+
+
+
+- story: ask for recipe and start cooking
+  steps:
+  - intent: ask_recipe
+  - action: action_set_current_recipe
+  - action: action_recipe_step
+
+- story: continue cooking with next steps
+  steps:
+  - intent: ask_recipe_step
+  - action: action_recipe_step
+
+- story: check missing ingredients cost
+  steps:
+  - intent: ask_missing_ingredients_cost
+  - action: action_missing_ingredients_cost

@@ -1,0 +1,26 @@
+version: "3.1"
+
+rules:
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Check pantry item (with form)
+    steps:
+      - intent: check_item
+      - action: check_item_form
+      - active_loop: check_item_form
+
+  - rule: Submit pantry check form
+    condition:
+      - active_loop: check_item_form
+    steps:
+      - action: check_item_form
+      - active_loop: null
+      - action: action_check_item_availability

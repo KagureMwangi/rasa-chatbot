@@ -1,0 +1,27 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi there
+    - good morning
+    - what's up
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - talk to you soon
+    - catch you later
+
+- intent: check_item
+  examples: |
+    - check if I have [milk](item)
+    - do I still have [rice](item)?
+    - is there any [bread](item) left?
+    - can you check [pasta](item) in my pantry?
+    - see if I have [flour](item)
+    - look up [cof]()
